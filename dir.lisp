@@ -1,10 +1,10 @@
 ;@TODO Make file writing into a function. 
 ;@TODO Loop through directory
 ;@TODO Make config file for directory if not user input
-
+(setf openFile "dir.lisp")
 
 ;Start out by reading a file. sure why not.
-(let ((in (open "dir.lisp")))
+(let ((in (open openFile)))
 		(loop for line = (read-line in nil)
 			while line do (print line)
 		)
@@ -14,7 +14,7 @@
 ;Now lets write to a file called MAP.txt
 ;Get the basics out of the way and then move to looping through a directory
 (setf fileName "MAP.txt")")"
-(setf content "FILE CONTENT")
+(setf content (concatenate 'string "File map of " openFile))
 
 (with-open-file (stream fileName :external-format charset:iso-8859-1
 								   :direction :output
