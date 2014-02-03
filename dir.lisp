@@ -1,3 +1,7 @@
+;@TODO Make file writing into a function. 
+;@TODO Loop through directory
+;@TODO Make config file for directory if not user input
+
 
 ;Start out by reading a file. sure why not.
 (let ((in (open "dir.lisp")))
