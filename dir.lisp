@@ -28,10 +28,3 @@
 
 (setf a '(1 2 3 4))
 
-(if (y-or-n-p "Do It?")
-	(progn (print "YES"))
-	(progn (print "NO"))
-)
-(print "Word to print: ")
-(setf f (read))
-(print f);
