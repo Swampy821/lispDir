@@ -1,30 +1,27 @@
 ;@TODO Make file writing into a function. 
 ;@TODO Loop through directory
 ;@TODO Make config file for directory if not user input
-(setf openFile "dir.lisp")
+(setf directoryMap "DIRECTORY");
 
-;Start out by reading a file. sure why not.
-(let ((in (open openFile)))
-		(loop for line = (read-line in nil)
-			while line do (print line)
-		)
-	(close in)
 
+(setf fileName "MAP.txt")
+
+
+(setf directoryMap (concatenate 'string directoryMap "*.*"))
+(setf theMap "")
+(loop for x in (directory directoryMap )
+	do 
+	(setf file (write-to-string x))
+	(setq theMap (concatenate 'string theMap "~%" (string-trim "#P" file)))
 )
-;Now lets write to a file called MAP.txt
-;Get the basics out of the way and then move to looping through a directory
-(setf fileName "MAP.txt")")"
-(setf content (concatenate 'string "File map of " openFile))
+
 
 (with-open-file (stream fileName :external-format charset:iso-8859-1
 								   :direction :output
 								   :if-exists :overwrite
 								   :if-does-not-exist :create)
-	(format stream content)
+	(format stream theMap)
 )
 
 (print (concatenate 'string "File " fileName " " "written successfully!"))
-
-
-(setf a '(1 2 3 4))
 
